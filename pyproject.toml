@@ -3,7 +3,7 @@ name = "ses-log-handler"
 packages = [
     {include = "ses_log_handler"}
 ]
-version = "1.0.1"
+version = "1.0.2"
 description = "Log messages to email via Amazon SES"
 authors = ["Matt Pye <pyematt@gmail.com>"]
 readme = "README.md"

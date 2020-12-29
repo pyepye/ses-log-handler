@@ -16,7 +16,7 @@ pip install ses-log-handler
 ```
 
 
-If you using IAM roles to get credentials for AWS or have the correct environmental variables defined (see [Boto3 configuration guide](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html)) then you can simply set a `sender` and `recipients` addresses for the handler:
+If you using IAM roles to get credentials for AWS or have the correct environment variables defined (see [Boto3 configuration guide](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html)) then you can simply set a `sender` and `recipients` addresses for the handler:
 
 ```python
 import logging
@@ -40,7 +40,7 @@ There is an example of how to configure the log hander using [`dictConfig()`](#d
 
 ## Configuration options
 
-If you want to explitily set the access, secret and region this can also be when instantiating the `SESHandler`.
+If you want to explicitly set the access, secret and region this can also be when instantiating the `SESHandler`.
 
 It also possible to force the subject line to be the same for each email
 
@@ -62,7 +62,7 @@ Required: Who the log email should be sent from. The domain should be added and 
 
 #### recipients
 
-Required: A list of recipients who should recieve the log emails.
+Required: A list of recipients who should receive the log emails.
 
 If your SES account only has "sandbox" access (see [SES dashboard](https://console.aws.amazon.com/ses/home?region=us-east-1#dashboard:)) these email addresses must be added as [verified sender email address](https://console.aws.amazon.com/ses/home?region=us-east-1#verified-senders-email:)
 
@@ -73,7 +73,7 @@ Optional: The AWS access key for a user who has access to send emails via SES.
 
 It is [best practices for managing AWS access keys](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) use instance roles instead of passing access keys to your application.
 
-If the access_key argument is not provided then the SESHandler (which uses boto3) will fall back to getting credentials from either the instance role or environmental varibales. See the [boto3 credentials guide](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) for more information.
+If the access_key argument is not provided then the SESHandler (which uses boto3) will fall back to getting credentials from either the instance role or environment variables. See the [boto3 credentials guide](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) for more information.
 
 
 #### secret_key
@@ -82,24 +82,24 @@ Optional: The AWS secret key for a user who has access to send emails via SES.
 
 It is [best practices for managing AWS access keys](https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html) use instance roles instead of passing access keys to your application.
 
-If the access_key argument is not provided then the SESHandler (which uses boto3) will fall back to getting credentials from either the instance role or environmental varibales. See the [boto3 credentials guide](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) for more information.
+If the access_key argument is not provided then the SESHandler (which uses boto3) will fall back to getting credentials from either the instance role or environment variables. See the [boto3 credentials guide](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html) for more information.
 
 #### region
 
 Optional: The AWS region which should be used to send emails via SES
 
-By default the region your application is running in will be used
+By default the region that your application is running in will be used
 
 
 #### subject
 
-Optional: Force override the subject line to be the same for each email.
+Optional: Force overrides the subject line to be the same for each email.
 
 The default is `<log_level>: <message>`
 
 
 
-## Configuration examles
+## Configuration examples
 
 The below examples both create a logging config which logs everything `ERROR` and above to SES and anything `WARNING` and below to the console.
 
